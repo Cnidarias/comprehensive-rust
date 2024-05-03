@@ -16,3 +16,10 @@ pub fn print_exercise() {
     println!("---------------");
     println!();
 }
+
+#[test]
+fn test_fibonacci_seq_33() {
+    let n = 33;
+    let res = 3524578;
+    assert_eq!(fib(n), res);
+}
