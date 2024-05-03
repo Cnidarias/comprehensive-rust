@@ -5,7 +5,11 @@
 use std::f64;
 
 fn magnitude(vec: &[f64; 3]) -> f64 {
-    (vec[0] * vec[0] + vec[1] * vec[1] + vec[2] * vec[2]).sqrt()
+    let mut maginute_squared = 0.0;
+    for v in vec {
+        maginute_squared += v * v;
+    }
+    maginute_squared.sqrt()
 }
 
 // Normalize a vector by calculating its magnitude and dividing all of its
@@ -13,9 +17,9 @@ fn magnitude(vec: &[f64; 3]) -> f64 {
 
 fn normalize(vec: &mut [f64; 3]) {
     let magnitude = magnitude(vec);
-    vec[0] /= magnitude;
-    vec[1] /= magnitude;
-    vec[2] /= magnitude;
+    for v in vec {
+        *v /= magnitude;
+    }
 }
 
 pub fn print_exercise() {
