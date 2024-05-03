@@ -39,3 +39,37 @@ pub fn print_exercise() {
     println!("---------------");
     println!();
 }
+
+#[test]
+fn test_magnite_of_unit_vector() {
+    let unit_vec = [0.0, 1.0, 0.0];
+    assert_eq!(magnitude(&unit_vec), 1.0);
+}
+
+#[test]
+fn test_magnite_of_know_vector() {
+    let unit_vec = [1.0, 4.0, 8.0];
+    assert_eq!(magnitude(&unit_vec), 9.0);
+}
+
+#[test]
+fn test_normalization_longer_vec() {
+    // ensure that our vector is first longer than 1
+    let mut unit_vec = [1.0, 4.0, 8.0];
+    assert!(magnitude(&unit_vec) > 1.0);
+    // then ensure that it has length 1 after normalization
+    //
+    normalize(&mut unit_vec);
+    assert_eq!(magnitude(&unit_vec), 1.0);
+}
+
+#[test]
+fn test_normalization_shorter_vec() {
+    // ensure that our vector is first longer than 1
+    let mut unit_vec = [0.0, 0.0, 0.1];
+    assert!(magnitude(&unit_vec) < 1.0);
+    // then ensure that it has length 1 after normalization
+    //
+    normalize(&mut unit_vec);
+    assert_eq!(magnitude(&unit_vec), 1.0);
+}
