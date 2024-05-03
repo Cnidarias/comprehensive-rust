@@ -1,4 +1,4 @@
-pub fn collatz_length(mut n: i32) -> u32 {
+fn collatz_length(mut n: i32) -> u32 {
     assert!(n > 0, "n must be greater than 0");
 
     let mut len = 1;
@@ -8,6 +8,17 @@ pub fn collatz_length(mut n: i32) -> u32 {
     }
 
     len
+}
+
+pub fn print_exercise() {
+    println!("Exercise");
+    println!("----- 6.7 -----");
+
+    let n = 3;
+    println!("collatz_length({n}) = {}", collatz_length(n));
+
+    println!("---------------");
+    println!();
 }
 
 #[test]
